@@ -4,6 +4,7 @@ class Home extends Controller {
     public function __construct()
     {
         $this->usuario = $this->model('usuario');
+        $this->publicaciones = $this->model('publicar');
     }
 
     public function index() {
@@ -11,11 +12,13 @@ class Home extends Controller {
              {
                $datosUsuario = $this->usuario->getUser($_SESSION['usuario']);
                $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
+               $datosPublicaciones = $this->publicaciones->getPublicaciones();
 
                if($datosPerfil){
                   $datosRed = [
                      'usuario' => $datosUsuario,
-                     'perfil' => $datosPerfil
+                     'perfil' => $datosPerfil,
+                     'publicaciones' => $datosPublicaciones
                   ];
                  $this->view("pages/home", $datosRed);
                }else{

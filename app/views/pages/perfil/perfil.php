@@ -9,8 +9,8 @@ include_once URL_APP . "/views/pages/custom/navbar.php";
         <div class="col-md-3">
             <div class="container-style-main">
                 <div class="card" style="width: 18rem;">
-                    <img src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil ?>" alt="" style="padding-top: 44px;">
-                    <?php if ( $datos['usuario']->idusuario == $_SESSION['logueado']) : ?>
+                    <img src="<?php echo URL_PROJECT?>/<?php echo $datos['perfil']->fotoPerfil ?>" alt="" style="padding-top: 44px;">
+                    <?php if ($datos['usuario']->idusuario == $_SESSION['logueado']) : ?>
                         <form action="<?php echo URL_PROJECT ?>/perfil/cambiarImagen" method="POST"  enctype="multipart/form-data">
                         <i class="fas fa-camera"></i>
                         <div class="input-file">
@@ -23,21 +23,18 @@ include_once URL_APP . "/views/pages/custom/navbar.php";
                         </form>
                     <?php endif ?>
                     <div class="card-body">
+                        <h3><?php echo ucwords($datos['usuario']->usuario) ?></h3>
                        <div class="text-center nombre-perfil"> <?php echo $datos['perfil']->nombreCompleto ?></div>
-                        <div class="tabla-estadisticas">
-                            <a href="#">Publicaciones 0 </a><br>
-                            <a href="#">Impresiones 0 </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6" style="padding-left: 88px; padding-top: 47px;">
             <div class="mb-3">
-            <?php if ( $datos['usuario']->idusuario == $_SESSION['logueado']) : ?>
+            <?php if ($datos['usuario']->idusuario == $_SESSION['logueado']) : ?>
                 <div class="container-usuario-publicar" style="display: flex; flex-direction: row; flex-wrap: wrap; align-content: stretch;
                     justify-content: space-evenly;">
-                    <a href="<?php echo URL_PROJECT ?>/perfil"><img
+                    <a href="<?php echo URL_PROJECT ?>/perfil/<?php echo $datos['usuario']->usuario ?>"><img
                             src="<?php echo URL_PROJECT . '/' . $datos['perfil']->fotoPerfil ?>" class="image-border"
                             alt="" style="width:70px;"></a>
                     <form action="" class="form-publicar ml-2">

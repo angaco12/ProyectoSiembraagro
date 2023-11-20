@@ -22,6 +22,7 @@ class Perfil extends Controller{
     }
    }
    public function cambiarImagen(){
+
     $carpeta = "C:/xampp/htdocs/siembraagro/public/img/imagenesPerfil/";
     opendir($carpeta);
     $rutaImagen = 'img/imagenesPerfil/' . $_FILES['imagen']['name'];
@@ -29,9 +30,14 @@ class Perfil extends Controller{
     copy($_FILES['imagen']['tmp_name'], $ruta);
 
     $datos = [
-       'idusuario' => trim($_POST['id_user']),
-       'ruta' => $rutaImagen
-    ];
+        'idusuario' => trim($_POST['id_user']),
+        'ruta' => $rutaImagen
+     ];
+
+    $imagenActual = $this->usuario->getPerfil($datos['idusuario']);
+    
+    unlink('C:/xampp/htdocs/Siembraagro/public/' . $imagenActual->fotoPerfil);
+  
     if($this->perfil->editarFotoPerfil($datos)){
        redirection('/home');
     }
