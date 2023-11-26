@@ -62,10 +62,10 @@ class Home extends Controller {
     {
       if ($_SERVER['REQUEST_METHOD'] == 'POST'){
          $dataRegister = [
-            'privilegio' => "2",
+            'privilegio' => "1",
             "email" => trim($_POST['email']),
             "usuario" => trim($_POST['usuario']),
-            "contrasena" => password_hash(trim($_POST['contrasena']), PASSWORD_DEFAULT)
+            "contrasena" => password_hash(trim($_POST['contrasena']), PASSWORD_DEFAULT),
         ];
 
         if($this->usuario->verifiqueUser($dataRegister)){
@@ -98,6 +98,8 @@ class Home extends Controller {
       $datos = [
          'idusuario' => trim($_POST['id_user']),
          'nombre' => trim($_POST['nombre']),
+         'telefono' => trim($_POST['telefono']),
+         'direccion' => trim($_POST['direccion']),
          'ruta' => $rutaImagen
       ];
       if($this->usuario->insertarPerfil($datos)){

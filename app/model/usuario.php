@@ -10,7 +10,13 @@ class usuario
     }
 
     public function getUser($user){
-        $this->db->query('SELECT * FROM usuarios WHERE usuario = :usuario');
+        $this->db->query('SELECT * FROM usuarios WHERE usuario = :usuario' );
+        $this->db->bind(':usuario', $user);
+        return $this->db->register();
+    }
+
+    public function getUserFeed($user){
+        $this->db->query('SELECT * FROM usuarios U INNER JOIN perfil P ON U.idusuario = P.idUsuario WHERE usuario = :usuario' );
         $this->db->bind(':usuario', $user);
         return $this->db->register();
     }
@@ -47,7 +53,8 @@ class usuario
        $this->db->bind(':correo', $dataUser['email']);
        $this->db->bind(':usuario', $dataUser['usuario']);
        $this->db->bind(':contrasena', $dataUser['contrasena']);
-
+    //    $this->db->bind(':telefono', $dataUser['telefono']);
+    //    $this->db->bind(':direccion', $dataUser['direccion']);
        if ($this->db->execute()){
         return true;
        }else{
@@ -56,10 +63,12 @@ class usuario
     }
 
     public function insertarPerfil($datos){
-        $this->db->query('INSERT INTO perfil (idUsuario, fotoPerfil, nombreCompleto) VALUES (:id , :rutaFoto, :nombre)');
+        $this->db->query('INSERT INTO perfil (idUsuario, fotoPerfil, nombreCompleto, telefono, direccion) VALUES (:id , :rutaFoto, :nombre, :telefono, :direccion)');
         $this->db->bind(':id', $datos['idusuario']);
         $this->db->bind(':rutaFoto', $datos['ruta']);
         $this->db->bind(':nombre', $datos['nombre']);
+        $this->db->bind(':telefono', $datos['telefono']);
+        $this->db->bind(':direccion', $datos['direccion']);
         
         if ($this->db->execute()){
             return true;

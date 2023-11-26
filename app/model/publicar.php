@@ -22,9 +22,9 @@ class publicar
     }
 
     public function getPublicaciones(){
-        $this->db->query('SELECT P.contenidoPublicacion, P.fotoPublicacion, P.fechaPublicacion, U.usuario, Per.fotoPerfil FROM publicaciones P
+        $this->db->query('SELECT P.contenidoPublicacion, P.fotoPublicacion, P.fechaPublicacion, U.usuario, Per.fotoPerfil, Per.nombreCompleto FROM publicaciones P
         INNER JOIN usuarios U ON U.idusuario = P.idUserPublico
-        INNER JOIN perfil Per ON Per.idUsuario = P.idUserPublico');
+        INNER JOIN perfil Per ON Per.idUsuario = P.idUserPublico ORDER BY P.idpublicacion DESC');
         return $this->db->registers();
     }
 }

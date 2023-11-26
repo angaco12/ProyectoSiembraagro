@@ -16,6 +16,8 @@ include_once URL_APP . "/views/pages/custom/header.php";
                     <input type="hidden" name="id_user" value="<?php echo $_SESSION['logueado'] ?>">
                     <div class="form-group">
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" required>
+                        <input type="text" name="direccion" class="form-control" placeholder="Dirección" required>
+                        <input type="tel" name="telefono" class="form-control" pattern="[0-9]{10}" placeholder="Número contacto" required>
                     </div>
                     <div class="form-group">
                         <div class="custom-file">
