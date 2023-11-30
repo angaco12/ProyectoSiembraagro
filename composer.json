@@ -1,27 +1,5 @@
 {
-    "name": "root/project",
-    "authors": [
-        {
-            "name": "Ricardo González",
-            "email": "ricardo_gonzalez82192@elpoli.edu.co"
-
-        },
-
-        {
-            "name": "Jennifer Lotero",
-            "email": "jennifer_lotero82192@elpoli.edu.co"
-
-        },
-        {
-            "name": "Anderson Gallo",
-            "email": "anderson_gallo82111@elpoli.edu.co"
-        }
-    ],
     "require-dev": {
-        "phpunit/phpunit":"^10.4"
-    },
-    "autoload": {
-        "psr-4": {"App\\":"app/"}
-    },
-    "autoload-dev": {"App\\Tests\\":"Tests/"}
+        "phpunit/phpunit": "10.4"
+    }
 }
