@@ -3,7 +3,6 @@
 include_once URL_APP . "/views/pages/custom/header.php";
 include_once URL_APP . "/views/pages/custom/navbar.php";
 
-
 ?>
 
 <div style="    display: flex;
@@ -37,9 +36,10 @@ include_once URL_APP . "/views/pages/custom/navbar.php";
                     <?php if ($datos['usuario']->idusuario == $_SESSION['logueado']): ?>
                         <form action="<?php echo URL_PROJECT ?>/perfil/cambiarImagen" method="POST"  enctype="multipart/form-data">
                         <i class="fas fa-camera"></i>
+                        <h7>Cambiar imagen</h7>
                         <div class="input-file">
                             <input type="hidden" name="id_user" value="<?php echo $_SESSION['logueado'] ?>">
-                            <input type="file" name="imagen" id="imagen" style="max-width: 98%;">
+                            <input type="file" name="imagen" id="imagen" style="max-width: 98%;" placeholder="Cambiar imagen">
                         </div>
                         <div class="editar-perfil">
                             <button class="btn-change-image btn btn-success">Editar</button>

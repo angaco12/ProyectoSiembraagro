@@ -8,11 +8,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><span class="big"><i
+                    <a class="nav-link text-white" href="<?php echo URL_PROJECT?>/home/login"><span class="big"><i
                                 class="fas fa-home mr-1"></i></span>Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><span class="big"><i
+                    <a class="nav-link text-white" href="<?php echo URL_PROJECT?>/home/usuarios"><span class="big"><i
                                 class="fas fa-home mr-1"></i></span>Usuarios</a>
                 </li>
                 <li class="nav-item">
@@ -40,7 +40,7 @@
                     <?php echo ucwords($_SESSION['usuario']); ?>
                 </span>
                 <div class="dropdown-menu" aria-labelledby="actionPerfil">
-                    <a class="dropdown-item text-dark" href="#">Action</a>
+                    <a class="dropdown-item text-dark"  href="<?php echo URL_PROJECT ?>/perfil/<?php echo $datos['usuario']->usuario ?>">Mi perfil</a>
                     <a class="dropdown-item text dark" href="<?php echo URL_PROJECT?>/home/logout">Salir</a>
                 </div>
             </div>

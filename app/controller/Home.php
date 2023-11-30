@@ -119,4 +119,25 @@ class Home extends Controller {
 
           redirection('/home');
         }
+
+        public function usuarios(){
+         if (isset($_SESSION['logueado'])){
+            $datosUsuario = $this->usuario->getUser($_SESSION['usuario']);
+            $datosPerfil = $this->usuario->getPerfil($_SESSION['logueado']);
+            $usuariosRegistrados = $this->usuario->getAllUsuarios();
+            $cantidadUsuarios = $this->usuario->getCantidadUsuarios();
+
+            if($datosPerfil){
+               $datos= [
+                  'usuario' => $datosUsuario,
+                  'perfil' => $datosPerfil,
+                  'usuarios' => $usuariosRegistrados,
+                  'cantidadUsuarios' => $cantidadUsuarios
+               ];
+               $this->view('pages/usuarios/usuarios', $datos);
+            }else{
+               redirection('/home');
+            }
+         }
+        }
 }
