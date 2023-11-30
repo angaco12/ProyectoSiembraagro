@@ -76,4 +76,16 @@ class usuario
            return false;
            }
     }
+
+    public function getAllUsuarios(){
+        $this->db->query('SELECT U.idusuario, U.usuario, P.fotoPerfil, P.nombreCompleto FROM usuarios U 
+        INNER JOIN perfil P ON P.idUsuario = U.idusuario');
+        return $this->db->registers();
+    }
+
+    public function getCantidadUsuarios(){
+        $this->db->query('SELECT idusuario FROM usuarios');
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

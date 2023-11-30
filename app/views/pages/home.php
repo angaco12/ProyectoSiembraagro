@@ -31,8 +31,8 @@ include_once URL_APP . "/views/pages/custom/navbar.php";
                         alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $datos['perfil']->nombreCompleto ?></h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">SiembrAgro te brinda la mejor calidad de productos de nuestro campesinado Colombiano</p>
+
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary"><?php echo ucwords($datos['usuario']->usuario) ?></small>
